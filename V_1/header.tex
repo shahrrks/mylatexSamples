@@ -1,0 +1,84 @@
+%Praktikum I2 - Elektrische Filter 
+
+\usepackage[utf8]{inputenc} %Codierung des LaTeX-Dokumentes. Auf Windows-Maschinen ist statt utf8 auch ANSIC als Codierung mÃ¶glich, aber unnÃ¶tig, da utf8 in jeder Hinsicht besser als ANSI ist. Bei Linux: latin1 als Codierung, auf MacOS X: applemac
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel} %Deutsche Zeichen- und Umbruchsetzung
+\usepackage{amsmath, amssymb,amsfonts} %AMS-TeX-Pakete. NÃ¶tig fÃ¼r die Definition der Mathematik-Umgebung
+\usepackage{graphicx} 
+\usepackage[bookmarks,colorlinks=true]{hyperref} %Mittels hyperref lassen sich hyperlinks innerhalb des PDF-Dokumentes benutzen. Beispiel: Mausklick im Inhaltsverzeichnis auf ein Kapitel fÃ¼hrt zum automatischen Sprung in dieses Kapitel
+\usepackage{geometry}
+\geometry{a4paper,margin=2.5cm}
+\usepackage{float}
+%Ein Paket, mit dem sich ohne Probleme mehrseitige PDF-Dokumente ohne \includegraphics-Rumgemache einbinden lassen. Befehl: \includepdf[pages=a-b]{PDFfile.pdf}. Einzelne Seiten, oder auch alle Seiten (Option pages=-) kÃ¶nnen angewÃ¤hlt werden
+%Wenn keine Option angegeben wird, gilt pages=1!
+\usepackage{pdfpages}
+%\usepackage{framed, color} %Framed: Paket, mittels dessen ein Rahmen um einen Bereich definiert werden kann. Color: LÃ¤sst Farbdarstellung in Schrift, Hintergrund etc. zu
+\usepackage{scrlayer-scrpage} %Header fÃ¼r die KOMA-script -Klasse
+
+\usepackage{siunitx} %Ein schÃ¶nes Paket, um Einheiten und physikalische GrÃ¶ÃŸen richtig zu setzen. Z.B.  \SI{2}{\kilo\gram\per\meter\squared}
+\usepackage[square,numbers]{natbib}
+\usepackage{subfigure} %Mehrere Bilder in einer Figure-Umgebung
+\usepackage{titlesec}
+\usepackage{gensymb} %für degree and Symbole 
+\usepackage{longtable}
+\usepackage{theorem}
+\newtheorem{problem}{Aufgabe}
+\author{Shah Rrks}
+%\setcounter{section}{5}
+%%%%%%%%%%%%%%%%Hier Title formatieren
+\titleformat*{\section}{\LARGE\bfseries}
+%\titleformat*{\subsection{\}
+%siunitx-Konfiguration. Damit werden die richtigen Font-Einstellungen erkannt (also beispielsweise fett, kursiv etc.) und damit  ebenfalls die deutsche Zeichensetzung, insbesondere Trennungszeichen, benutzt werden. 
+%Ebenso wird bei SIrange das "`to"' in "`bis"' umgewandelt, bei SIlist das "`and"' in "`und"'
+\sisetup{detect-weight=true, detect-family=true,locale=DE,range-phrase={\,bis\,},list-final-separator ={\,\linebreak[0] \text{und}\,},separate-uncertainty=true,per-mode = symbol-or-fraction}
+%\SI[per-mode = fraction]{1}{\meter\per\second} erzwingt auch im FlieÃŸtext die Bruchdarstellung.
+\DeclareSIUnit\curie{Ci}%ZusÃ¤tzliche Einheit definieren
+
+%Hyperlinks-Setup
+\hypersetup{
+	colorlinks,
+	linktocpage,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{section} % Die Nummerierung von Gleichungen bekommt die jeweilige Section-Nummer als PrÃ¤fix
+
+\setlength{\parindent}{0 mm} %EinrÃ¼cktiefe von neuen AbsÃ¤tzen
+%setlength{\parskip}{2 mm} %Abstand von AbsÃ¤tzen
+
+
+
+\pagestyle{scrheadings}%Kopf und FuÃŸzeilen
+\ohead{\GRUPPENNR\ -\VERSUCHSNR - \VERSUCHSNAME} %Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
+%\ihead{\VerfasserEINS\;\&\;\VerfasserZWEI} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
+\ofoot{\empty} %Footer unten links auf linker und unten rechts auf rechter Seite, enthÃ¤lt die jeweilige Seitenzahl. Im Fall eines einseitigen Elements: Footer unten rechts!
+\cfoot[\pagemark]{\pagemark{}} %Mittig unten im Footer soll nichts eingetragen werden 
+\ifoot{\empty} %Footer unten rechts auf linker und unten links auf rechter Seite. Hier ebenfalls leer.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Hier sind meine new Commands  DEFINITIONS MACROS 
+\newcommand{\VERSUCHSNR}{V1}
+\newcommand{\VERSUCHSNAME}{Spurensucher}
+\newcommand{\VERSUCHSDATUM}{19.01.2022}
+\newcommand{\PROTOKOLLDATUM}{\today}
+
+\newcommand{\VerfasserEINS}{Ravi Shah}
+\newcommand{\MatNoEINS}{108018*****}
+
+
+\newcommand{\VerfasserZWEI}{Rakunath ****}
+\newcommand{\MatNoZWEI}{10801******}
+
+\newcommand{\BETREUER}{*********}
+\newcommand{\GRUPPENNR}{Gruppe 1 }
+
+\newcommand{\degr}{^{\circ}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hier beginnt die Titelseite
